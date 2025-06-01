@@ -35,7 +35,7 @@ const CafeCard: React.FC<CafeCardProps> = ({ cafe, onClick, isSelected }) => {
   return (
     <div
       onClick={onClick}
-      className={`cafe-card ${isSelected ? 'selected' : ''}`}
+      className="cafe-card"
     >
       {/* Header */}
       <div className="cafe-header">
@@ -47,7 +47,7 @@ const CafeCard: React.FC<CafeCardProps> = ({ cafe, onClick, isSelected }) => {
         <div className="cafe-info">
           <h3 className="cafe-name">{cafe.name}</h3>
           <div className="cafe-address">
-            <MapPin className="icon-small icon-gray" size={12} />
+            <MapPin className="icon-small" size={12} />
             <span>{cafe.location.address}</span>
           </div>
           <div className="cafe-badges">
@@ -72,11 +72,11 @@ const CafeCard: React.FC<CafeCardProps> = ({ cafe, onClick, isSelected }) => {
         <h4 className="working-quality-title">Working vs Coffee Quality</h4>
         <div className="working-quality-scores">
           <div className="score-item">
-            <div className="score-value working">{cafe.workingVsCoffeeQuality.working}/10</div>
+            <div className="score-value">{cafe.workingVsCoffeeQuality.working}/10</div>
             <div className="score-label">Working</div>
           </div>
           <div className="score-item">
-            <div className="score-value coffee">{cafe.workingVsCoffeeQuality.coffeeQuality}/10</div>
+            <div className="score-value">{cafe.workingVsCoffeeQuality.coffeeQuality}/10</div>
             <div className="score-label">Coffee</div>
           </div>
         </div>
@@ -90,6 +90,19 @@ const CafeCard: React.FC<CafeCardProps> = ({ cafe, onClick, isSelected }) => {
         {renderAttribute('Service', cafe.attributes.service, <Users className="icon-small" size={12} />)}
         {renderAttribute('Coffee Quality', cafe.attributes.coffeeQuality, <Coffee className="icon-small" size={12} />)}
         {renderAttribute('Coffee Price', cafe.attributes.coffeePrice, <span style={{fontSize: '12px'}}>$</span>)}
+      </div>
+
+      {/* Click hint */}
+      <div style={{
+        marginTop: '12px',
+        padding: '8px',
+        background: '#f9f9f9',
+        borderRadius: '6px',
+        textAlign: 'center',
+        fontSize: '12px',
+        color: '#666666'
+      }}>
+        Click to view details
       </div>
     </div>
   );
