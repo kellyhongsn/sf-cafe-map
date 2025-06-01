@@ -3,11 +3,12 @@ import { Map, List, X } from 'lucide-react';
 import CafeMap from './components/CafeMap';
 import CafeCard from './components/CafeCard';
 import CafeDetail from './components/CafeDetail';
+import WorkingCoffeePlot from './components/WorkingCoffeePlot';
 import { Cafe } from './types/Cafe';
 import { sampleCafes } from './data/sampleCafes';
 
 type ViewMode = 'map' | 'list' | 'detail';
-type FilterType = 'all' | 'working' | 'coffee';
+type FilterType = 'all' | 'working' | 'coffee' | 'overall';
 
 function App() {
   const [viewMode, setViewMode] = useState<ViewMode>('map');
@@ -69,7 +70,7 @@ function App() {
             href="https://x.com/alishbaimran_" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: '#1d4ed8', textDecoration: 'none' }}
+            style={{ color: '#666666', textDecoration: 'none' }}
           >
             Alishba Imran
           </a>
@@ -78,7 +79,7 @@ function App() {
             href="https://x.com/kellyhongsn" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: '#1d4ed8', textDecoration: 'none' }}
+            style={{ color: '#666666', textDecoration: 'none' }}
           >
             Kelly Hong
           </a>
@@ -87,7 +88,7 @@ function App() {
             href="https://x.com/henryHM_ko" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: '#1d4ed8', textDecoration: 'none' }}
+            style={{ color: '#666666', textDecoration: 'none' }}
           >
             Henry Ko
           </a>
@@ -375,6 +376,22 @@ function App() {
                 marginBottom: '20px'
               }}>
                 <button
+                  onClick={() => setFilterType('overall')}
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    border: '1px solid #e5e7eb',
+                    background: filterType === 'overall' ? '#000000' : '#ffffff',
+                    color: filterType === 'overall' ? '#ffffff' : '#666666',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    fontWeight: filterType === 'overall' ? '600' : '400',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  📊 Overall View
+                </button>
+                <button
                   onClick={() => setFilterType('all')}
                   style={{
                     padding: '8px 16px',
@@ -425,20 +442,38 @@ function App() {
               </div>
             </div>
             
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-              gap: '20px'
-            }}>
-              {getFilteredCafes().map((cafe) => (
-                <CafeCard
-                  key={cafe.id}
-                  cafe={cafe}
-                  onClick={() => handleCafeClick(cafe)}
-                  isSelected={selectedCafe?.id === cafe.id}
+            {/* 2D Plot for Working vs Coffee Quality - only show when 'overall' filter is selected */}
+            {filterType === 'overall' && (
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                marginBottom: '30px' 
+              }}>
+                <WorkingCoffeePlot 
+                  cafes={getFilteredCafes()} 
+                  selectedCafe={selectedCafe}
+                  onCafeSelect={handleCafeClick}
                 />
-              ))}
-            </div>
+              </div>
+            )}
+            
+            {/* Cafe Cards Grid - hide when 'overall' filter is selected */}
+            {filterType !== 'overall' && (
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: '20px'
+              }}>
+                {getFilteredCafes().map((cafe) => (
+                  <CafeCard
+                    key={cafe.id}
+                    cafe={cafe}
+                    onClick={() => handleCafeClick(cafe)}
+                    isSelected={selectedCafe?.id === cafe.id}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -488,6 +523,43 @@ function App() {
           </a>
         </footer>
       )}
+
+      {/* Floating Suggest Cafe Button */}
+      <button
+        onClick={() => window.open('https://forms.gle/2E5hpEDwCDVuGkAz6', '_blank')}
+        style={{
+          position: 'fixed',
+          bottom: viewMode !== 'detail' ? '80px' : '20px', // Adjust position based on footer visibility
+          right: '20px',
+          background: '#000000',
+          color: '#ffffff',
+          border: 'none',
+          borderRadius: '50px',
+          padding: '12px 20px',
+          fontSize: '14px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+          zIndex: 1001,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          transition: 'all 0.2s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = '#333333';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = '#000000';
+          e.currentTarget.style.transform = 'translateY(0px)';
+          e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+        }}
+      >
+        <span style={{ fontSize: '16px' }}>☕</span>
+        Suggest Cafe
+      </button>
     </div>
   );
 }
