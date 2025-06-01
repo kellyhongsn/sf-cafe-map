@@ -2,38 +2,13 @@ import { Cafe } from '../types/Cafe';
 
 export const sampleCafes: Cafe[] = [
   {
-    id: '3',
-    name: 'Sightglass Coffee',
-    description: 'Industrial-chic roastery with high ceilings and abundant seating, though WiFi isn\'t available. Their house blend drip coffee shines, making it perfect for coffee purists who don\'t need to work online.',
-    location: {
-      lat: 37.7649,
-      lng: -122.4094,
-      address: '270 7th St, San Francisco, CA 94103'
-    },
-    rating: 5.5,
-    workingVsCoffeeQuality: {
-      working: 4,
-      coffeeQuality: 7
-    },
-    attributes: {
-      wifiSpeed: 1,
-      outlets: 1,
-      vibe: 3,
-      service: 4,
-      coffeeQuality: 2,
-      coffeePrice: 3
-    },
-    hasWifi: false,
-    picture: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop'
-  },
-  {
-    id: '6',
+    id: '1',
     name: 'Delah Cafe',
-    description: 'A vibrant late-night spot perfect for co-working sessions with friends. While the coffee and drinks are decent for the price, the real draw is the unique atmosphere and extended hours that make it ideal for evening work sessions.',
+    description: 'Good because open late but also it\'s loud and drinks/coffee is not the best for given price. But it\'s a nice place to co-work with people and unique vibe.',
     location: {
-      lat: 37.7749,
-      lng: -122.3951,
-      address: '370 4th St, San Francisco, CA 94107'
+      lat: 37.7939,
+      lng: -122.4021,
+      address: '450 Sansome St, San Francisco, CA 94111'
     },
     rating: 6.0,
     workingVsCoffeeQuality: {
@@ -52,9 +27,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1559496417-e7f25cb247cd?w=400&h=300&fit=crop'
   },
   {
-    id: '7',
+    id: '2',
     name: 'Le Cafe du Soleil',
-    description: 'A charming neighborhood cafe with excellent food and inviting vibes. While outlets are somewhat limited, you can usually find a good spot to settle in for work. The quality coffee and food make it worth the visit.',
+    description: 'Good vibes and food, usually able to find seating but outlets are a bit limited.',
     location: {
       lat: 37.7706,
       lng: -122.4472,
@@ -77,9 +52,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop'
   },
   {
-    id: '8',
+    id: '3',
     name: 'Atlas Cafe',
-    description: 'A Mission District gem with fantastic vibes, delicious food, and reliable seating availability. The combination of great coffee and a welcoming atmosphere makes it an excellent choice for productive work sessions.',
+    description: 'Good vibes and food, usually able to find seating.',
     location: {
       lat: 37.7599,
       lng: -122.4148,
@@ -102,9 +77,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&h=300&fit=crop'
   },
   {
-    id: '9',
+    id: '4',
     name: 'Saint Frank Coffee',
-    description: 'A premium coffee destination known for exceptional quality, though seating is limited and WiFi can be spotty on weekends. While their famous $9 cappuccino might be pricey, the coffee craftsmanship is undeniable.',
+    description: 'Good coffee, but limited seating and wifi during weekends. Also, coffee is more on the expensive side. (Their special is said to be the cappuccino but it was $9 so I never tried :()',
     location: {
       lat: 37.7956,
       lng: -122.4244,
@@ -127,11 +102,11 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&h=300&fit=crop'
   },
   {
-    id: '10',
+    id: '5',
     name: 'Motoring Coffee',
-    description: 'A popular Union Street spot with excellent drinks, reasonable prices, and cool interior design. The quality and atmosphere draw crowds, so arriving early is recommended to secure seating for work.',
+    description: 'Really good like nice drinks and good prices, good vibes. But it\'s pretty popular so difficult to get seating sometimes. Cool interior decorations.',
     location: {
-      lat: 37.7956,
+      lat: 37.7966,
       lng: -122.4344,
       address: '1525 Union St, San Francisco, CA 94123'
     },
@@ -152,12 +127,37 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop'
   },
   {
-    id: '11',
-    name: 'Wrecking Ball Coffee',
-    description: 'A coffee purist\'s paradise with no seating but exceptional beans. Their Ethiopia Yirgacheffe iced pour-overs are legendary among acidic coffee lovers. Perfect for grab-and-go coffee perfection.',
+    id: '6',
+    name: 'Sightglass Coffee',
+    description: 'Lots of seating, but no wifi. Their house blend drip is good, but pour overs are not the best.',
     location: {
-      lat: 37.7956,
-      lng: -122.4344,
+      lat: 37.7649,
+      lng: -122.4094,
+      address: '270 7th St, San Francisco, CA 94103'
+    },
+    rating: 5.5,
+    workingVsCoffeeQuality: {
+      working: 4,
+      coffeeQuality: 7
+    },
+    attributes: {
+      wifiSpeed: 1,
+      outlets: 1,
+      vibe: 3,
+      service: 4,
+      coffeeQuality: 2,
+      coffeePrice: 3
+    },
+    hasWifi: false,
+    picture: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop'
+  },
+  {
+    id: '7',
+    name: 'Wrecking Ball Coffee',
+    description: 'No seating, but really good coffee. I love their Ethiopia Yirgacheffe beans for iced pour overs. You\'ll be a fan if you like acidic coffee too.',
+    location: {
+      lat: 37.7946,
+      lng: -122.4354,
       address: '2271 Union St, San Francisco, CA 94123'
     },
     rating: 5.5,
@@ -177,9 +177,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop'
   },
   {
-    id: '12',
-    name: 'Blue Bottle Coffee - Fillmore',
-    description: 'Beautiful interior design and unmatched store ambiance, though the black coffee doesn\'t live up to the hype. The space is perfect for working, and their lattes are much better than their drip coffee.',
+    id: '8',
+    name: 'Blue Bottle Coffee',
+    description: '(Henry) Not good (black) coffee, but best interior and store vibes. Coffees are very overrated imho. I always get a latte here instead of black.',
     location: {
       lat: 37.7856,
       lng: -122.4344,
@@ -202,9 +202,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=400&h=300&fit=crop'
   },
   {
-    id: '13',
+    id: '9',
     name: 'Haus Coffee',
-    description: 'A beautifully designed cafe with excellent coffee, but challenging for remote work due to slow WiFi and no outlets. Best enjoyed as a coffee destination rather than a workspace.',
+    description: 'Good coffee and interior is really nice but not a great place for working (wifi isn\'t great & no outlets).',
     location: {
       lat: 37.7519,
       lng: -122.4194,
@@ -227,12 +227,12 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop'
   },
   {
-    id: '14',
+    id: '10',
     name: 'Cafe Réveille',
-    description: 'A popular spot serving excellent food and drinks in a lively atmosphere. Weekend crowds can make seating challenging, but the quality and extended evening hours make it worth the wait.',
+    description: 'Good food and drinks, sometimes very crowded on weekends so hard to find seating.',
     location: {
-      lat: 37.7706,
-      lng: -122.4472,
+      lat: 37.7716,
+      lng: -122.4462,
       address: '201 Steiner St, San Francisco, CA 94117'
     },
     rating: 6.5,
@@ -252,9 +252,9 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=300&fit=crop'
   },
   {
-    id: '15',
+    id: '11',
     name: 'Coffeeshop',
-    description: 'A cozy neighborhood spot with solid drinks and minimal seating - just one table and bar seating. Perfect for a quick coffee break or solo work session in an intimate setting.',
+    description: 'Pretty decent drinks, there is like one table and bar seating for working.',
     location: {
       lat: 37.7569,
       lng: -122.4194,
@@ -277,12 +277,12 @@ export const sampleCafes: Cafe[] = [
     picture: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop'
   },
   {
-    id: '16',
+    id: '12',
     name: 'The Coffee Movement',
-    description: 'Absolutely exceptional coffee that has earned legendary status among SF coffee enthusiasts. Located within another restaurant with no workspace amenities, but the coffee quality is so outstanding it\'s worth the trip just for takeaway.',
+    description: 'BEST COFFEE. Kelly will not drink coffee from any other cafe. No spots to work, but it\'s so good that I will still go there just for coffee. This coffee shop is within another restaurant. Henry agrees with them having the best coffee.',
     location: {
-      lat: 37.7599,
-      lng: -122.4148,
+      lat: 37.7589,
+      lng: -122.4138,
       address: '2814 19th St, San Francisco, CA 94110'
     },
     rating: 5.5,

@@ -351,130 +351,131 @@ function App() {
             )}
           </div>
         ) : (
-          <div style={{ padding: '20px', height: '100%', overflow: 'auto', paddingBottom: '100px' }}>
-            <div style={{ marginBottom: '20px' }}>
-              <h2 style={{ 
-                margin: '0 0 8px 0', 
-                fontSize: '24px', 
-                fontWeight: '600',
-                color: '#000000'
-              }}>
-                Top Rated Cafes for Working
-              </h2>
-              <p style={{ 
-                margin: '0 0 16px 0', 
-                fontSize: '14px', 
-                color: '#666666'
-              }}>
-                {getFilteredCafes().length} cafes found
-              </p>
-              
-              {/* Filter Buttons */}
-              <div style={{
-                display: 'flex',
-                gap: '8px',
-                marginBottom: '20px'
-              }}>
-                <button
-                  onClick={() => setFilterType('overall')}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: '1px solid #e5e7eb',
-                    background: filterType === 'overall' ? '#000000' : '#ffffff',
-                    color: filterType === 'overall' ? '#ffffff' : '#666666',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: filterType === 'overall' ? '600' : '400',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  📊 Overall View
-                </button>
-                <button
-                  onClick={() => setFilterType('all')}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: '1px solid #e5e7eb',
-                    background: filterType === 'all' ? '#000000' : '#ffffff',
-                    color: filterType === 'all' ? '#ffffff' : '#666666',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: filterType === 'all' ? '600' : '400',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  All Cafes
-                </button>
-                <button
-                  onClick={() => setFilterType('working')}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: '1px solid #e5e7eb',
-                    background: filterType === 'working' ? '#000000' : '#ffffff',
-                    color: filterType === 'working' ? '#ffffff' : '#666666',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: filterType === 'working' ? '600' : '400',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  🖥️ Best for Working
-                </button>
-                <button
-                  onClick={() => setFilterType('coffee')}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: '1px solid #e5e7eb',
-                    background: filterType === 'coffee' ? '#000000' : '#ffffff',
-                    color: filterType === 'coffee' ? '#ffffff' : '#666666',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: filterType === 'coffee' ? '600' : '400',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  ☕ Best Coffee
-                </button>
-              </div>
-            </div>
-            
-            {/* 2D Plot for Working vs Coffee Quality - only show when 'overall' filter is selected */}
-            {filterType === 'overall' && (
+          <>
+            {/* Check if we're showing the 2D plot (overall view) */}
+            {filterType === 'overall' ? (
               <div style={{ 
-                display: 'flex', 
-                justifyContent: 'center', 
-                marginBottom: '30px' 
+                height: '100%', 
+                width: '100%',
+                position: 'relative'
               }}>
                 <WorkingCoffeePlot 
                   cafes={getFilteredCafes()} 
                   selectedCafe={selectedCafe}
                   onCafeSelect={handleCafeClick}
+                  onFilterChange={setFilterType}
                 />
               </div>
-            )}
-            
-            {/* Cafe Cards Grid - hide when 'overall' filter is selected */}
-            {filterType !== 'overall' && (
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                gap: '20px'
-              }}>
-                {getFilteredCafes().map((cafe) => (
-                  <CafeCard
-                    key={cafe.id}
-                    cafe={cafe}
-                    onClick={() => handleCafeClick(cafe)}
-                    isSelected={selectedCafe?.id === cafe.id}
-                  />
-                ))}
+            ) : (
+              <div style={{ padding: '20px', height: '100%', overflow: 'auto', paddingBottom: '100px' }}>
+                <div style={{ marginBottom: '20px' }}>
+                  <h2 style={{ 
+                    margin: '0 0 8px 0', 
+                    fontSize: '24px', 
+                    fontWeight: '600',
+                    color: '#000000'
+                  }}>
+                    Top Rated Cafes for Working
+                  </h2>
+                  <p style={{ 
+                    margin: '0 0 16px 0', 
+                    fontSize: '14px', 
+                    color: '#666666'
+                  }}>
+                    {getFilteredCafes().length} cafes found
+                  </p>
+                  
+                  {/* Filter Buttons */}
+                  <div style={{
+                    display: 'flex',
+                    gap: '8px',
+                    marginBottom: '20px'
+                  }}>
+                    <button
+                      onClick={() => setFilterType('overall' as FilterType)}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        border: '1px solid #e5e7eb',
+                        background: (filterType as string) === 'overall' ? '#000000' : '#ffffff',
+                        color: (filterType as string) === 'overall' ? '#ffffff' : '#666666',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        fontWeight: (filterType as string) === 'overall' ? '600' : '400',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      📊 Overall View
+                    </button>
+                    <button
+                      onClick={() => setFilterType('all')}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        border: '1px solid #e5e7eb',
+                        background: filterType === 'all' ? '#000000' : '#ffffff',
+                        color: filterType === 'all' ? '#ffffff' : '#666666',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        fontWeight: filterType === 'all' ? '600' : '400',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      All Cafes
+                    </button>
+                    <button
+                      onClick={() => setFilterType('working')}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        border: '1px solid #e5e7eb',
+                        background: filterType === 'working' ? '#000000' : '#ffffff',
+                        color: filterType === 'working' ? '#ffffff' : '#666666',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        fontWeight: filterType === 'working' ? '600' : '400',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      🖥️ Best for Working
+                    </button>
+                    <button
+                      onClick={() => setFilterType('coffee')}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        border: '1px solid #e5e7eb',
+                        background: filterType === 'coffee' ? '#000000' : '#ffffff',
+                        color: filterType === 'coffee' ? '#ffffff' : '#666666',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        fontWeight: filterType === 'coffee' ? '600' : '400',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      ☕ Best Coffee
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Cafe Cards Grid */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                  gap: '20px'
+                }}>
+                  {getFilteredCafes().map((cafe) => (
+                    <CafeCard
+                      key={cafe.id}
+                      cafe={cafe}
+                      onClick={() => handleCafeClick(cafe)}
+                      isSelected={selectedCafe?.id === cafe.id}
+                    />
+                  ))}
+                </div>
               </div>
             )}
-          </div>
+          </>
         )}
       </div>
 
