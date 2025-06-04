@@ -515,7 +515,7 @@ function App() {
           </a>
           {', '}
           <a 
-            href="https://x.com/henryHM_ko" 
+            href="https://henryhmko.github.io/" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#1d4ed8', textDecoration: 'none' }}
