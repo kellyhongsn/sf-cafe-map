@@ -24,7 +24,7 @@ export const sampleCafes: Cafe[] = [
       coffeePrice: 3
     },
     hasWifi: true,
-    picture: 'https://images.unsplash.com/photo-1559496417-e7f25cb247cd?w=400&h=300&fit=crop'
+    picture: '/images/cafes/delah-cafe.png'
   },
   {
     id: '2',
@@ -49,7 +49,7 @@ export const sampleCafes: Cafe[] = [
       coffeePrice: 3
     },
     hasWifi: true,
-    picture: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop'
+    picture: '/images/cafes/soleil.png'
   },
   {
     id: '3',
@@ -74,7 +74,7 @@ export const sampleCafes: Cafe[] = [
       coffeePrice: 3
     },
     hasWifi: true,
-    picture: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&h=300&fit=crop'
+    picture: '/images/cafes/atlas.png'
   },
   {
     id: '4',
